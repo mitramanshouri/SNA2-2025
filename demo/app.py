@@ -38,6 +38,7 @@ st.write ("The thicker the line, the more times this overlap occurred. Edge thic
 st.header ("Scatterplot")
 from pathlib import Path
 img_path = Path(__file__).parent / "Scatterplot.png"
+
 st.image(str(img_path), caption="Scatterplot of Node Degree with Logarithmic Scale")
 st.write ("This scatterplot shows the degree (number of connections) for each Grammy award category on a log-log scale.")
 st.write ("Each point represents one category node in the graph.")
