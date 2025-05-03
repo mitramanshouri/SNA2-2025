@@ -27,26 +27,29 @@ st.header ("Histogram")
 from pathlib import Path
 img_path = Path(__file__).parent / "histogram.png"
 st.image(str(img_path), caption="Histogram")
-st.write ("These are the top 10 most connected categories in the Grammy nomination network, ranked by degree, or how many other categories they frequently overlap with.")
 st.write ("First, we calculate the degree for every node in our graph G, where each node is a Grammy category. We use the weight of edges, which tells us how often two categories shared the same artist, song, or album. ")
+
+st.write ("We found that major awards (like Album of the Year) act as hubs, they connect to many genre-specific awards. We also found that dance and electronic categories increasingly overlap with general awards, showing genre blending.Lastly, we found that our graph model reveals how the Grammys cluster and group styles, even if categories are named differently.")
 st.header ("Co-Nomination Network with Weighted Edges")
 from pathlib import Path
 img_path = Path(__file__).parent / "conomination.png"
 st.image(str(img_path), caption="Co-Nomination Network with Weighted Edges")
-st.write ("This is a simple co-nomination network. Each node here represents a Grammy category. Each line/edge between them means there was at least one shared nominee between those two categories.")
-st.write ("The thicker the line, the more times this overlap occurred. Edge thickness represents weight or frequency of co-nomination.")
+st.write ("This simplified co-nomination network highlights how different Grammy award categories are connected based on shared nominations, specifically when the same artist, album, or song was nominated in more than one category. Each node here represents a Grammy category, and every line or edge between them means there was at least one shared nominee between those two categories. The thicker the line, the more times it overlaps, and the edge thickness represents weight or frequency of co-nomination.")
+
 st.header ("Scatterplot")
 from pathlib import Path
 img_path = Path(__file__).parent / "Scatterplot.png"
 
 st.image(str(img_path), caption="Scatterplot of Node Degree with Logarithmic Scale")
-st.write ("This scatterplot shows the degree (number of connections) for each Grammy award category on a log-log scale.")
-st.write ("Each point represents one category node in the graph.")
-st.write ("The x-axis shows the node ID; the y-axis shows how many other categories it’s connected to.")
-st.write ("Helps reveal the power-law distribution")
-st.header ("Revealed Shared Nominations")
+st.write ("This scatterplot visualizes the degree of each node in the Grammy nomination network, using a logarithmic scale on both axes. It highlights how most categories have relatively few connections, while a few, like Album of the Year, act as highly connected hubs. The log-log scale helps reveal a power-law distribution, a common feature in real-world networks where a small number of nodes dominate. This pattern suggests that certain Grammy categories consistently bridge multiple genres, making them central to the award landscape.")
+st.header ("Shared Nominations")
 from pathlib import Path
 img_path = Path(__file__).parent / "Shared Nominations.png"
 st.image(str(img_path), caption="Here are our concluding findings about the amount of shared nominations across categories, over years.")
+st.header ("Sigma(G) Graph")
+from pathlib import Path
+img_path = Path(__file__).parent / "big graph.png"
+st.image(str(img_path), caption="Sigma(G) Graph")
+st.write("The graph includes 773 nodes and 10,256 edges, forming a dense network.Clusters and heavily connected regions suggest groups of categories that frequently recognize the same works — for example, pop-related awards or genre-specific groupings.This network helps uncover how categories are interrelated and which ones often overlap in nominations.")
 st.header ("Our Takeaways")
 st.markdown("<span style='color:pink;'>We found that major awards (like Album of the Year) act as hubs, they connect to many genre-specific awards. We also found that dance and electronic categories increasingly overlap with general awards, showing genre blending.Lastly, we found that our graph model reveals how the Grammys cluster and group styles, even if categories are named differently.</span>", unsafe_allow_html=True)
